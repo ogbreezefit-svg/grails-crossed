@@ -155,6 +155,8 @@ body.focus .fx{opacity:1;pointer-events:auto}
 #how ol{list-style:none;counter-reset:s}
 #how li{counter-increment:s;padding:16px 0;border-top:1px solid var(--line);font-size:13px;line-height:1.6}
 #how li::before{content:"0" counter(s);display:block;color:var(--mute);font-size:10px;letter-spacing:.2em;margin-bottom:4px}
+.p-terms{margin:14px 0 0 14px;font-size:11px;color:var(--mute);text-decoration:underline}
+#how .terms{padding-top:16px;border-top:1px solid var(--line);font-size:12px;line-height:1.6;color:var(--mute)}
 #how .close{margin-top:24px}
 
 @media (max-width:720px){
@@ -211,7 +213,7 @@ body.focus .fx{opacity:1;pointer-events:auto}
   <div class="sizes" id="pSizes"></div>
   <div class="p-note caps" id="pNote"></div>
   <a class="dm caps" id="dmBtn" href="#" target="_blank" rel="noopener"></a>
-  <div><button class="p-photos caps" id="pPhotos"></button></div>
+  <div><button class="p-photos caps" id="pPhotos"></button><button class="p-terms" id="pTerms">All sales final · Terms</button></div>
 </div>
 
 <div class="ticker"><div class="track" id="track"></div></div>
@@ -232,6 +234,7 @@ body.focus .fx{opacity:1;pointer-events:auto}
       <li>Tap <b>DM to buy</b>. Your message is copied automatically and Instagram opens.</li>
       <li>Paste, send, and we'll confirm availability, payment and shipping in the DM.</li>
     </ol>
+    <p class="terms">We take Zelle, Cash App, PayPal or cash. Free shipping on orders over $500; otherwise shipping is calculated when you are ready to pay. All sales are final with no returns, so please do your due diligence before paying.</p>
     <button class="close caps" id="howClose">Close ×</button>
   </div>
 </div>
@@ -531,6 +534,7 @@ $("#home").onclick = e=>{ e.preventDefault(); toRack(); };
 $("#prev").onclick = ()=>go(-1);
 $("#next").onclick = ()=>go(1);
 $("#howBtn").onclick = ()=>$("#how").classList.add("in");
+$("#pTerms").onclick = ()=>$("#how").classList.add("in");
 $("#howClose").onclick = ()=>$("#how").classList.remove("in");
 $("#how").onclick = e=>{ if(e.target.id==="how") $("#how").classList.remove("in"); };
 addEventListener("keydown", e=>{
